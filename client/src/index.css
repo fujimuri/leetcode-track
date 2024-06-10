@@ -1,0 +1,61 @@
+/* selects the root element of the document: <html>
+in case of HTML
+the colon : is used to select pseudo-classes */
+:root {
+    font-size: 20px;
+}
+
+/* use the * selector to select everything; this
+does not include pseudo-elements, whatever they are
+[pseudo-class selectors have prefix : , pseudo-
+elements have prefix :: and are used to target elements
+that don't normally exist in the markup]
+border-box ==> the width and height of the element
+will include padding and borders. it simplifies
+the sizing of elements
+*/
+* {
+    box-sizing: border-box;
+}
+
+/* flex-direction specifies the direction of the
+flexible items. the items in the flex container,
+in this case body, should stack vertically.
+*/
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #8fd0f6;
+}
+
+/* justify-content defines how the browser
+distributes space between and around content items
+along the main-axis of a flex container
+align-items controls the alignment of items on the
+cross axis (so it's the same as justify content?)
+NO.
+cross axis is perpendiculat to the flex direction
+background property sets all background style properties
+at once, like color, image, origin, size.
+we set it at 'none', which is equivalent to transparent
+color: inherit => take the value from the element's
+parent.
+*/
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: inherit;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+.masthead {
+    display: flex;
+    align-items: center;
+    background-color: #0067a3;
+}
