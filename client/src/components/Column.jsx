@@ -1,26 +1,26 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import ColumnItem from './ColumnItem';
 
-function Column() {
+function Column({ name }) {
     const defaultItems = [
-        {name: "Pet Sophie", id: uuidv4() }
+        {content: "Pet Sophie", id: uuidv4() }
     ]
+
     const [items, setItems] = useState(defaultItems)
     
     return (
         <div className="column">
             <h3 className="column-title">
-                Column Name
+                {name}
             </h3>
-            <ul className="items">
+            <ul className="column-items">
                 {items.map((item) => (
-                    <li key={item.id}>
-                        {item.name}
-                    </li>
+                    <ColumnItem id={item.id} content={item.content} />
                 ))}
             </ul>
-            <button className="add-items-btn btn">
-                add items
+            <button className="add-item-btn btn">
+                add item
             </button>
         </div>
     )
