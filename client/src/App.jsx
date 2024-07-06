@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <header className="masthead">
-        <p className="header">
+        <p className="header-btn btn">
           Leetcode Tracker
         </p>
       </header>
