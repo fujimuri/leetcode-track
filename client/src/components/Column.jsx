@@ -7,16 +7,36 @@ function Column({ name }) {
         {content: "Pet Sophie", id: uuidv4() }
     ]
 
-    const [items, setItems] = useState(defaultItems)
+    const [items, setItems] = useState(defaultItems);
+
+    function handleOnDrag(e, id, content) {
+        e.dataTransfer.setData("id", id);
+        e.dataTransfer.setData("content", content);
+    }
+
+    function handleDrop(e) {
+        const id = e.dataTransfer.getData("id");
+        const content = e.dataTransfer.getData("content");
+        console.log(id)
+        console.log(content)
+        setItems([...items, {id, content}])
+    }
+
+    function handleDragOver(e) {
+        e.preventDefault();
+    }
     
     return (
-        <div className="column">
+        <div className="column" onDrop={handleDrop} onDragOver={handleDragOver}>
             <h3 className="column-title">
                 {name}
             </h3>
             <ul className="column-items">
                 {items.map((item) => (
-                    <ColumnItem id={item.id} content={item.content} />
+                    <ColumnItem
+                    id={item.id}
+                    content={item.content}
+                    handleOnDrag={handleOnDrag} />
                 ))}
             </ul>
             <button className="add-item-btn btn">
