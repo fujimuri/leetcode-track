@@ -1,6 +1,9 @@
-function ColumnItem({ id, content }) {
+function ColumnItem({ id, content, handleOnDrag }) {
     return (
-        <li key={id}>
+        <li className="column-item"
+            draggable
+            onDragStart={(e) => handleOnDrag(e, id, content)}
+            key={id}>
             {content}
         </li>
     )
